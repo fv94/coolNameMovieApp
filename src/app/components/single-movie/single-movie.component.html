@@ -1,0 +1,15 @@
+<div class="movie">
+  <img [src]="movieImage" class="movie-img">
+  <p class="movie-title">{{ movieTitle | uppercase }}</p>
+  <div class="rating"
+       [ngClass]="{ 'rating-low' : rating < 5,
+                    'rating-medium' : rating >= 5 && rating < 8,
+                    'rating-high' : rating >= 8 }">
+    {{ rating }}
+  </div>
+  <div class="icons">
+    <mat-icon *ngIf="!isInWatchLater" (click)="addToWatchLater()" matTooltip="Add to Watch Later">watch_later</mat-icon>
+    <mat-icon *ngIf="!isInFavorites" (click)="addToFavorites()" matTooltip="Add to Favorites">favorite_border</mat-icon>
+    <mat-icon *ngIf="isInFavorites" (click)="removeFromFavorites()" matTooltip="Remove from Favorites" class="favorite">favorite</mat-icon>
+  </div>
+</div>

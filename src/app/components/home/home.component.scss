@@ -1,0 +1,51 @@
+.search-page {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.search-and-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+mat-icon {
+  color: white;
+  padding: 10px;
+  border: white 2px solid;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.activated-icon {
+  color: greenyellow;
+  border: greenyellow 8px solid;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 10px 10px 0 10px;
+  background-color: white;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.movie {
+  cursor: pointer;
+}

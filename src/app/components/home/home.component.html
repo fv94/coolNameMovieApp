@@ -1,0 +1,40 @@
+<div class="search-page">
+  <div class="search-and-buttons">
+    <mat-icon (click)="showWatchLater()"
+              matTooltip="Watch Later"
+              [ngClass]="{'activated-icon' : activated === 'watchLater'}">watch_later</mat-icon>
+
+    <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Movie name</mat-label>
+        <input type="text"
+               placeholder="Search"
+               aria-label="Movie name"
+               matInput
+               [formControl]="search"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of movies$ | async" [value]="option.title">
+            {{option.title}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+
+    <mat-icon (click)="showFavorites()"
+              matTooltip="Favorites"
+              [ngClass]="{'activated-icon' : activated === 'favorites'}">favorite</mat-icon>
+  </div>
+
+  <div class="movies-list">
+    <app-single-movie
+      class="movie"
+      *ngFor="let movie of (movies$ | async)"
+      [movieImage]="IMG_URL + movie.poster_path"
+      [movieTitle]="movie.original_title"
+      [rating]="+movie.vote_average"
+      [id]="movie.id"
+      (click)="movieClicked(movie)">
+    </app-single-movie>
+  </div>
+</div>
